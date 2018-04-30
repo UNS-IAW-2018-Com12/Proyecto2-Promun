@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Promun' });
 });
 
+router.get('/readme', function(req, res, next) {
+  res.render('readme');
+})
+
 module.exports = router;

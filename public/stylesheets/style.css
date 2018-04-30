@@ -1,8 +1,13 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+footer {
+  background-color: #041D57;
+  color: white;
+  height: 8em;
 }
-
-a {
-  color: #00B7FF;
+footer p {
+  margin: 0;
+  padding-top: 1em;
+}
+footer .img-logo {
+  height: 6em;
+  width: 5em;
 }
