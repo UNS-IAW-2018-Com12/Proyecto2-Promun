@@ -10,4 +10,8 @@ router.get('/readme', function(req, res, next) {
   res.render('readme');
 })
 
+router.get('/login', function(req, res, next) {
+  res.render('login');
+})
+
 module.exports = router;
