@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/promun');
-
 var usuarioSchema = mongoose.Schema({
   username: {
     type: String,
@@ -30,7 +28,7 @@ var usuarioSchema = mongoose.Schema({
     required: true
   },
   puntaje: {
-    type: Numbers,
+    type: Number,
     default: 0,
     min: 0
   }

@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/promun');
-
 var schemaPartido = mongoose.Schema({
   id_equipo1: {
     type: String,
@@ -17,8 +15,7 @@ var schemaPartido = mongoose.Schema({
   },
   grupo: {
     type: String,
-    uppercase: true,
-    match: [A-H]
+    uppercase: true
   },
   comentarios: [
     {

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbURI = 'mongodb://localhost:27017/promun'
+var dbURI = 'mongodb://localhost:27017/Promun'
 
 mongoose.connect(dbURI);
 
@@ -10,3 +10,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', function() {
   console.log('Conectado a la base de datos.');
 });
+
+require('./grupos');
+require('./usuarios');
