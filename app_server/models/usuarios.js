@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/promun');
+const dbURI = process.env.MLAB_URI;
+
+mongoose.connect(dbURI);
 
 var usuarioSchema = mongoose.Schema({
   username: {
