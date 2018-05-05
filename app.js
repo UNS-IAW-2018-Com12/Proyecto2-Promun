@@ -5,11 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('./app_server/models/db');
 
-
-var indexRouter = require('./app_server/routes/index');
-var usersRouter = require('./app_server/routes/users');
-var adminRouter = require('./app_server/routes/admin');
-
 var app = express();
 
 // view engine setup
@@ -23,6 +18,28 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// Configuring Passport
+var passport = require('passport');
+var expressSession = require('express-session');
+// TODO - Why Do we need this key ?
+//app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Using the flash middleware provided by connect-flash to store messages in session
+// and displaying in templates
+var flash = require('connect-flash');
+app.use(flash());
+
+// Initialize Passport
+var initPassport = require('./app_server/passport/init');
+initPassport(passport);
+
+var indexRouter = require('./app_server/routes/index')(passport);
+var usersRouter = require('./app_server/routes/users');
+var adminRouter = require('./app_server/routes/admin');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

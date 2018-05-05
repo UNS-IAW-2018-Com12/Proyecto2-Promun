@@ -30,10 +30,17 @@ var usuarioSchema = mongoose.Schema({
     required: true
   },
   puntaje: {
-    type: Numbers,
+    type: Number,
     default: 0,
     min: 0
-  }
+  },
+  fb: {
+		id: String,
+		access_token: String,
+		firstName: String,
+		lastName: String,
+		email: String
+	}
 });
 
 mongoose.model('Usuario', usuarioSchema);
