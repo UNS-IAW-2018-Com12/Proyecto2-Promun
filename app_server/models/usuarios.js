@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 
+const dbURI = process.env.MLAB_URI;
+
+mongoose.connect(dbURI);
+
 var usuarioSchema = mongoose.Schema({
   username: {
     type: String,
@@ -31,7 +35,14 @@ var usuarioSchema = mongoose.Schema({
     type: Number,
     default: 0,
     min: 0
-  }
+  },
+  fb: {
+		id: String,
+		access_token: String,
+		firstName: String,
+		lastName: String,
+		email: String
+	}
 });
 
 mongoose.model('Usuario', usuarioSchema);

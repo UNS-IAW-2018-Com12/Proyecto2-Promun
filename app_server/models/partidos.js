@@ -1,5 +1,12 @@
 var mongoose = require('mongoose');
 
+<<<<<<< HEAD
+=======
+const dbURI = process.env.MLAB_URI;
+
+mongoose.connect(dbURI);
+
+>>>>>>> 6afb027543d75126e518456a9dabaae2b8e469a9
 var schemaPartido = mongoose.Schema({
   id_equipo1: {
     type: String,
