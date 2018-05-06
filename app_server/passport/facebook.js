@@ -34,10 +34,12 @@ module.exports = function(passport) {
 
 				  // si encontro al usuaio lo loguea
 	            if (user) {
+                  console.log('ENCONTRE A : ', profile);
 	                return done(null, user);
 	            } else {
-
+                  console.log('NO ENCONTRE A : ', profile);
 	        // si no hay un usuadio con ese id entonces lo crea
+                  console.log('LO CREO');
 	                var nuevoUsuaio = new Usuario();
 
 					// setea los datos del modelo de usuario con lo retornado por facebook
@@ -49,7 +51,9 @@ module.exports = function(passport) {
                   }
                   nuevoUsuaio.puntaje = 0;
 
+                  console.log('CREE A', nuevoUsuaio);
 					// guarda el nuevo usuario en la db y lo retorna. Si ocurre un error lo informa
+                  console.log('LO GUARDO');
                   nuevoUsuaio.save(function(err) {
 	                    if (err)
 	                        throw err;
