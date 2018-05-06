@@ -13,6 +13,7 @@ module.exports = function(passport) {
         clientID        : fbConfig.appID,
         clientSecret    : fbConfig.appSecret,
         callbackURL     : fbConfig.callbackUrl,
+        profileFields   : ['id', 'displayName', 'email']
     },
 
     // facebook will send back the tokens and profile
@@ -20,7 +21,7 @@ module.exports = function(passport) {
 
   	console.log('PERFIL USUARIO : ', profile);
 
-    /*
+
 		// asynchronous
 		process.nextTick(function() {
 
@@ -59,6 +60,6 @@ module.exports = function(passport) {
 	            }
 	        });
         });
-        */
+
     }));
 };
