@@ -1,11 +1,23 @@
 var mongoose = require('mongoose');
 
 var usuarioSchema = mongoose.Schema({
-  id: String,
+  id: {
+    type: String,
+    required: true,
+    unique: true
+    },
   access_token: String,
-  firstName: String,
-  lastName: String,
-  email: String
+  username: {
+    type: String,
+    required: true,
+    unique: true
+    },
+  email: String,
+  puntaje: {
+    type: Number,
+    default: 0,
+    min: 0,
+  }
 })
 mongoose.model('Usuario', usuarioSchema);
   /*
@@ -40,8 +52,5 @@ mongoose.model('Usuario', usuarioSchema);
     default: 0,
     min: 0
   },
-  fb: {
-
-	}
 });
 */
