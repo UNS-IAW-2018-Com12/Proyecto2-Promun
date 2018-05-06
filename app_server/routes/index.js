@@ -60,7 +60,8 @@ module.exports = function(passport){
 	*/
 
 
-	// route for facebook authentication and login different scopes while logging in
+	// redirecciona al usuario a facebook para que se autentifique. Cuando termine,
+	// facebook redireccionara al usuario a la all en /login/facebook/callback
 	router.get('/login', passport.authenticate('facebook', { scope : 'email' }
 	));
 
