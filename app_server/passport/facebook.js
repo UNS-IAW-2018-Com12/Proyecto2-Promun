@@ -14,7 +14,6 @@ module.exports = function(passport) {
         clientSecret    : fbConfig.appSecret,
         callbackURL     : fbConfig.callbackUrl,
         passReqToCallback : true,
-      	profileFields : ['id', 'emails', 'name']
     },
 
     // facebook will send back the tokens and profile
