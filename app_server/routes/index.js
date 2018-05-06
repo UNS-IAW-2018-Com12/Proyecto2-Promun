@@ -19,12 +19,14 @@ module.exports = function(passport){
 		res.render('index');
 	});
 
-	/* Handle Login POST */
+	/*
+	// Handle Login POST
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/users',
 		failureRedirect: '/',
 		failureFlash : true
 	}));
+	*/
 
 	/*
 	//GET Registration Page
