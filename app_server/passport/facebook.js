@@ -1,7 +1,8 @@
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
-var usuario = mongoose.model('userInfo', Usuario);
 var fbConfig = require('../models/fb');
+var fbConfig = require('../models/usuarios');
+var usuario = mongoose.model('userInfo', Usuario);
 
 // db Connection
 const dbURI = process.env.MLAB_URI;
