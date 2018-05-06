@@ -57,7 +57,7 @@ module.exports = function(passport) {
                   nuevoUsuaio.save(function(err) {
 	                    if (err)
 	                        throw err;
-	                    return done(null, newUser);
+	                    return done(null, nuevoUsuaio);
 	                });
 	            }
 	        });
