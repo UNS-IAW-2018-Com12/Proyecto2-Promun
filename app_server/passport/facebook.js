@@ -2,6 +2,10 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('../models/usuarios');
 var fbConfig = require('../models/fb');
 
+// db Connection
+const dbURI = process.env.MLAB_URI;
+mongoose.connect(dbURI);
+
 module.exports = function(passport) {
 
     passport.use('facebook', new FacebookStrategy({
@@ -13,7 +17,7 @@ module.exports = function(passport) {
     // facebook will send back the tokens and profile
     function(access_token, refresh_token, profile, done) {
 
-    	console.log('profile', profile);
+  	console.log('PERFIL USUARIO : ', profile);
 
 		// asynchronous
 		process.nextTick(function() {
