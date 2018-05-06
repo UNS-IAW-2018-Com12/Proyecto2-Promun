@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('./app_server/models/db');
 
@@ -15,17 +14,19 @@ hbs.registerPartials(__dirname + '/app_server/views/partials');
 var helpers = require('handlebars-helpers')();
 hbs.registerHelper(helpers);
 
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Configuring Sessions and Cookies
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+app.use(cookieParser());
+app.use(expressSession({secret: "Es un secreto"}));
 
 // Configuring Passport
 var passport = require('passport');
-var expressSession = require('express-session');
 app.use(passport.initialize());
 app.use(passport.session());
 

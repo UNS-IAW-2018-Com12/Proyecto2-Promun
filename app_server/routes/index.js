@@ -21,38 +21,46 @@ module.exports = function(passport){
 
 	/* Handle Login POST */
 	router.post('/login', passport.authenticate('login', {
-		successRedirect: '/home',
+		successRedirect: '/users',
 		failureRedirect: '/',
 		failureFlash : true
 	}));
 
-	/* GET Registration Page */
+	/*
+	//GET Registration Page
 	router.get('/signup', function(req, res){
 		res.render('register',{message: req.flash('message')});
 	});
+	*/
 
-	/* Handle Registration POST */
+	/*
+	//Handle Registration POST
 	router.post('/signup', passport.authenticate('signup', {
 		successRedirect: '/home',
 		failureRedirect: '/signup',
 		failureFlash : true
 	}));
+	*/
 
-	/* GET Home Page */
+	/*
+	//GET Home Page
 	router.get('/home', isAuthenticated, function(req, res){
 		res.render('home', { user: req.user });
 	});
+	*/
 
-	/* Handle Logout */
+	/*
+	//Handle Logout
 	router.get('/signout', function(req, res) {
 		req.logout();
 		res.redirect('/');
 	});
+	*/
+
 
 	// route for facebook authentication and login
 	// different scopes while logging in
-	router.get('/login',
-		passport.authenticate('facebook', { scope : 'email' }
+	router.get('/login', passport.authenticate('facebook', { scope : 'email' }
 	));
 
 	// handle the callback after facebook has authenticated the user
