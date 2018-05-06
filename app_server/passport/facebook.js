@@ -3,6 +3,7 @@ var User = require('../models/usuarios');
 var fbConfig = require('../models/fb');
 
 // db Connection
+var mongoose = require('mongoose');
 const dbURI = process.env.MLAB_URI;
 mongoose.connect(dbURI);
 
