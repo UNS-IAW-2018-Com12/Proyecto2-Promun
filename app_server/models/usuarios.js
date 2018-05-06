@@ -16,9 +16,9 @@ var usuarioSchema = mongoose.Schema({
     type: Number,
     default: 0,
     min: 0,
-  }, {
-    collection = 'Usuario',
-  }
+    }
+}, {
+  collection : 'Usuario'
 });
 
 mongoose.model('Usuario', usuarioSchema);
