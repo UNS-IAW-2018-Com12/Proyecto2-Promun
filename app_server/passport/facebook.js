@@ -21,6 +21,7 @@ module.exports = function(passport) {
 
   	console.log('PERFIL USUARIO : ', profile);
 
+    /*
 		// asynchronous
 		process.nextTick(function() {
 
@@ -59,5 +60,6 @@ module.exports = function(passport) {
 	            }
 	        });
         });
+        */
     }));
 };
