@@ -9,16 +9,19 @@ var usuarioSchema = mongoose.Schema({
   access_token: String,
   username: {
     type: String,
-    required: true,
-    unique: true
+    required: true
     },
   email: String,
   puntaje: {
     type: Number,
     default: 0,
     min: 0,
-  }
+  },
 })
+{
+  collection: 'userInfo'
+});
+
 mongoose.model('Usuario', usuarioSchema);
   /*
   username: {
