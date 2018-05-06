@@ -12,7 +12,8 @@ module.exports = function(passport) {
     passport.use('facebook', new FacebookStrategy({
         clientID        : fbConfig.appID,
         clientSecret    : fbConfig.appSecret,
-        callbackURL     : fbConfig.callbackUrl
+        callbackURL     : fbConfig.callbackUrl,
+        passReqToCallback : true,
     },
 
     // facebook will send back the tokens and profile
@@ -31,7 +32,7 @@ module.exports = function(passport) {
 	            if (err)
 	                return done(err);
 
-				// if the user is found, then log them in
+				  // if the user is found, then log them in
 	            if (user) {
 	                return done(null, user); // user found, return that user
 	            } else {
@@ -46,7 +47,7 @@ module.exports = function(passport) {
                     nuevoUsuaio.fb.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
                   }
                   nuevoUsuaio.puntaje = 0; //setea el puntaje a cero
-                  
+
 					// save our user to the database
 	                nuevoUsuaio.save(function(err) {
 	                    if (err)
