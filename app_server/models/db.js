@@ -10,3 +10,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', function() {
   console.log('Conectado a la base de datos.');
 });
+
+require('./grupos');
+require('./usuarios');

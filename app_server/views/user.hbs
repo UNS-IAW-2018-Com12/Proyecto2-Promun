@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+
+  {{> metatags}} {{> bootstrap}} {{> pageIcon}}
+
+  <title>{{title}}</title>
+</head>
+
+<body id="body">
+  {{> navbar}}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        {{> menuLateral}}
+      </div>
+      <div class="col-md-6">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="perfil">
+            {{> perfil}}
+          </div>
+          <div class="tab-pane fade show" id="grupos">
+            {{> grupos}}
+          </div>
+          <div class="tab-pane fade show" id="fasefinal">
+            {{> fasefinal}}
+          </div>
+          <div class="tab-pane fade show" id="ranking">
+            {{> ranking}}
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        {{> tweets}}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  {{> footer}} {{> scripts}}
+
+</body>
+
+</html>

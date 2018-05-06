@@ -12,6 +12,9 @@ app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'hbs');
 const hbs = require('hbs');
 hbs.registerPartials(__dirname + '/app_server/views/partials');
+var helpers = require('handlebars-helpers')();
+hbs.registerHelper(helpers);
+
 
 app.use(logger('dev'));
 app.use(express.json());
