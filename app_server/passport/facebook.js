@@ -1,7 +1,7 @@
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 var fbConfig = require('../models/fb');
-var usuario = require('../models/usuarios');
+var Usuario = require('../models/usuarios');
 
 // db Connection
 const dbURI = process.env.MLAB_URI;
@@ -25,7 +25,7 @@ module.exports = function(passport) {
 		process.nextTick(function() {
 
 			// busca en la base de datos el usuario que coincida con el id de facebook
-	        usuario.findOne({ 'id' : profile.id }, function(err, user) {
+	        Usuario.findOne({ 'id' : profile.id }, function(err, user) {
 
 	        	// si hay un error, detener todo y retornarlo
 	        	// esto es, un error conectandose a la db
@@ -38,7 +38,7 @@ module.exports = function(passport) {
 	            } else {
 
 	        // si no hay un usuadio con ese id entonces lo crea
-	                var nuevoUsuaio = new usuario();
+	                var nuevoUsuaio = new Usuario();
 
 					// setea los datos del modelo de usuario con lo retornado por facebook
 	                nuevoUsuaio.id              = profile.id;

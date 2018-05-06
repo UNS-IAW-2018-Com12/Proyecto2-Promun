@@ -17,11 +17,9 @@ var usuarioSchema = mongoose.Schema({
     default: 0,
     min: 0,
   }
-}, {
-  collection: 'userInfo'
 });
 
-mongoose.model('userInfo', usuarioSchema);
+mongoose.model('Usuario', usuarioSchema);
   /*
   username: {
     type: String,
