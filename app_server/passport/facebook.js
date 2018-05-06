@@ -47,7 +47,7 @@ module.exports = function(passport) {
 	                nuevoUsuaio.access_token    = access_token;
 	                nuevoUsuaio.username        = profile.displayName;
                   if(profile.emails !== undefined){
-                    nuevoUsuaio.fb.email = profile.emails[0].value; //puede existir mas de un email, usa el primero
+                    nuevoUsuaio.email = profile.emails[0].value; //puede existir mas de un email, usa el primero
                   }
                   nuevoUsuaio.puntaje = 0;
 
