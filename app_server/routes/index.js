@@ -19,14 +19,14 @@ module.exports = function(passport){
 		res.render('index');
 	});
 
-
+	/*
 	// Handle Login POST
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/users',
-		failureRedirect: '/login',
+		failureRedirect: '/',
 		failureFlash : true
 	}));
-
+	*/
 
 	/*
 	//GET Registration Page
@@ -59,6 +59,10 @@ module.exports = function(passport){
 	});
 	*/
 
+
+	// route for facebook authentication and login different scopes while logging in
+	router.get('/login', passport.authenticate('facebook', { scope : 'email' }
+	));
 
 	// handle the callback after facebook has authenticated the user
 	router.get('/login/facebook/callback',
