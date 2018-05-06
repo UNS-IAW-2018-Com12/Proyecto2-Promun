@@ -45,7 +45,7 @@ module.exports = function(passport) {
 					// setea los datos del modelo de usuario con lo retornado por facebook
 	                nuevoUsuaio.id              = profile.id;
 	                nuevoUsuaio.access_token    = access_token;
-	                nuevoUsuaio.username        = profil.displayName;
+	                nuevoUsuaio.username        = profile.displayName;
                   if(profile.emails !== undefined){
                     nuevoUsuaio.fb.email = profile.emails[0].value; //puede existir mas de un email, usa el primero
                   }
