@@ -47,6 +47,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 
+
 app.use(function (req, res, next) {
   res.status(404).send("La página solicitada no existe.")
 });
