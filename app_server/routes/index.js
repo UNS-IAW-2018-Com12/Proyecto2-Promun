@@ -21,6 +21,30 @@ module.exports = function(passport){
 	});
 
 	/*
+	// Handle Login POST
+	router.post('/login', passport.authenticate('login', {
+		successRedirect: '/users',
+		failureRedirect: '/',
+		failureFlash : true
+	}));
+	*/
+
+	/*
+	//GET Registration Page
+	router.get('/signup', function(req, res){
+		res.render('register',{message: req.flash('message')});
+	});
+	*/
+
+	/*
+	//Handle Registration POST
+	router.post('/signup', passport.authenticate('signup', {
+		successRedirect: '/home',
+		failureRedirect: '/signup',
+		failureFlash : true
+	}));
+	*/
+
 	//GET users Page
 	router.get('/user', isAuthenticated, function(req, res){
 		if(req.isAuthenticated())
@@ -30,7 +54,6 @@ module.exports = function(passport){
 				title: 'Promun'
 			})
 	});
-	*/
 
 	// redirecciona al usuario a facebook para que se autentifique. Cuando termine,
 	// facebook redireccionara al usuario a la all en /login/facebook/callback
