@@ -47,8 +47,8 @@ module.exports = function(passport){
 	*/
 
 	//GET users Page
-	router.get('/users', isAuthenticated, function(req, res){
-		res.render('users', { user: req.user });
+	router.get('/user', isAuthenticated, function(req, res){
+		res.render('user', { user: req.user });
 	});
 
 
@@ -60,7 +60,7 @@ module.exports = function(passport){
 	// maneja el callback luego de que facebook autentifique
 	router.get('/login/facebook/callback',
 		passport.authenticate('facebook', {
-			successRedirect : '/users',
+			successRedirect : '/user',
 			failureRedirect : '/login'
 		})
 	);
