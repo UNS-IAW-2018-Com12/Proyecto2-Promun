@@ -14,21 +14,27 @@ var isAuthenticated = function (req, res, next) {
 }
 
 var userPage = (req, res) => {
-  Grupo.find().sort({letra: 'asc'}).then((grupos) => {
-    Usuario.find({tipo: 'user'}, {username: 1, puntaje: 1}).sort({puntaje: -1}).then((usuarios) => {
-      PartidosFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
-        res.render('user', {
-          title: 'Promun',
-          grupos: grupos,
-          usuarios: usuarios,
-          partidosFaseFinal: partidos
-        });
-      });
-    });
-  });
+	if(req.isAuthenticated()) {
+	  Grupo.find().sort({letra: 'asc'}).then((grupos) => {
+	    Usuario.find({tipo: 'user'}, {username: 1, puntaje: 1}).sort({puntaje: -1}).then((usuarios) => {
+	      PartidosFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
+	        res.render('user', {
+	          title: 'Promun',
+	          grupos: grupos,
+	          usuarios: usuarios,
+	          partidosFaseFinal: partidos
+	        });
+	      });
+	    });
+	  });
+	};
+	else {
+		res.render('index', {
+			title: 'Promun',
+		});
+	}
 }
 
 module.exports = {
-	isAuthenticated,
 	userPage
 };
