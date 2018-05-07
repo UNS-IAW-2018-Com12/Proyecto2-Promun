@@ -42,7 +42,7 @@ initPassport(passport);
 var indexRouter = require('./app_server/routes/index')(passport);
 var usersRouter = require('./app_server/routes/users');
 var adminRouter = require('./app_server/routes/admin');
-var logoutRouter = require('./app_server/routers/logout');
+var logoutRouter = require('./app_server/routes/logout');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
