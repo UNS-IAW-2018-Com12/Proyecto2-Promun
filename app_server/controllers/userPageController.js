@@ -3,6 +3,8 @@ var Grupo = mongoose.model('Grupo');
 var Usuario = mongoose.model('Usuario');
 var PartidosFaseFinal = mongoose.model('PartidosFaseFinal');
 
+
+/*
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
 	// Passport adds this method to request object. A middleware is allowed to add properties to
@@ -12,6 +14,7 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
+*/
 
 var userPage = (req, res) => {
   Grupo.find().sort({letra: 'asc'}).then((grupos) => {
@@ -29,6 +32,5 @@ var userPage = (req, res) => {
 }
 
 module.exports = {
-  userPage,
-	isAuthenticated
+  userPage
 };
