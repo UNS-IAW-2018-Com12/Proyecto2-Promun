@@ -16,10 +16,6 @@ var schemaGrupo = mongoose.Schema({
       type: String,
       required: true
     },
-    bandera_path: {
-      type: String,
-      required: true
-    },
     resultados_grupo: {
       puntos: {
         type: Number,
@@ -66,7 +62,44 @@ var schemaGrupo = mongoose.Schema({
         default: 0
       }
     }
-  }]
+  }],
+  partidos: [
+    {
+      equipo1: {
+        type: String,
+        required: true
+      },
+      equipo2: {
+        type: String,
+        required: true
+        },
+      fecha: {
+        type: String,
+        required: true
+      },
+      pronosticos: [
+        {
+          user: {
+            type: String,
+            required: true
+          },
+          golesEquipo1: {
+            type: Number,
+            required: true
+          },
+          golesEquipo2: {
+            type: Number,
+            required: true
+          },
+          estrellas: {
+            type: Number,
+            min: 1,
+            max: 5
+          }
+        }
+      ]
+    }
+  ]
 });
 
 mongoose.model('Grupo', schemaGrupo);

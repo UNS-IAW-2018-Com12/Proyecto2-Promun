@@ -8,15 +8,17 @@ var isAuthenticated = function (req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/');
+	res.redirect('/index');
 }
 
 module.exports = function(passport){
 
-	/* GET login page. */
+
+	// Get index page
 	router.get('/', function(req, res) {
-    	// Display the Login page with any flash message, if any
-		res.render('index');
+		res.render('index', {
+			title: 'Promun'
+		});
 	});
 
 	/*
@@ -45,20 +47,11 @@ module.exports = function(passport){
 	*/
 
 	/*
-	//GET Home Page
-	router.get('/home', isAuthenticated, function(req, res){
-		res.render('home', { user: req.user });
+	//GET users Page
+	router.get('/users', isAuthenticated, function(req, res){
+		res.render('users', { user: req.user });
 	});
 	*/
-
-	/*
-	//Handle Logout
-	router.get('/signout', function(req, res) {
-		req.logout();
-		res.redirect('/');
-	});
-	*/
-
 
 	// redirecciona al usuario a facebook para que se autentifique. Cuando termine,
 	// facebook redireccionara al usuario a la all en /login/facebook/callback
@@ -72,6 +65,15 @@ module.exports = function(passport){
 			failureRedirect : '/login'
 		})
 	);
+
+
+	/*
+	//Handle Logout
+	router.get('/signout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+	});
+	*/
 
 	return router;
 }

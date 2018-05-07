@@ -6,7 +6,7 @@ require('./app_server/models/db');
 
 var app = express();
 
-// view engine setup
+// Configuring view engine
 app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'hbs');
 const hbs = require('hbs');
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Configuring Sessions and Cookies
+// Configuring Sessions and Cookies
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 app.use(cookieParser());
@@ -30,8 +30,7 @@ var passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Using the flash middleware provided by connect-flash to store messages in session
-// and displaying in templates
+// Confuring Connecting-flash
 var flash = require('connect-flash');
 app.use(flash());
 
@@ -43,6 +42,7 @@ var indexRouter = require('./app_server/routes/index')(passport);
 var usersRouter = require('./app_server/routes/users');
 var adminRouter = require('./app_server/routes/admin');
 
+// Configure routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
@@ -56,7 +56,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Configure error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

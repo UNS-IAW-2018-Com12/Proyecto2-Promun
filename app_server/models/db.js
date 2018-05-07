@@ -13,3 +13,4 @@ db.once('open', function() {
 
 require('./grupos');
 require('./usuarios');
+require('./fasefinal');

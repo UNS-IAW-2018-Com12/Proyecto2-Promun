@@ -4,12 +4,13 @@
 <head>
 
   {{> metatags}} {{> bootstrap}} {{> pageIcon}}
-
+  <link rel="stylesheet" href="../stylesheets/user.css">
+  <link rel="stylesheet" href="../stylesheets/fontawesome-all.css">
   <title>{{title}}</title>
 </head>
 
 <body id="body">
-  {{> navbar}}
+  {{> navbarUser}}
 
   <div class="container-fluid">
     <div class="row">
@@ -24,8 +25,17 @@
           <div class="tab-pane fade show" id="grupos">
             {{> grupos}}
           </div>
-          <div class="tab-pane fade show" id="fasefinal">
-            {{> fasefinal}}
+          <div class="tab-pane fade show" id="octavos">
+            {{> octavos}}
+          </div>
+          <div class="tab-pane fade show" id="cuartos">
+            {{> cuartos}}
+          </div>
+          <div class="tab-pane fade show" id="semis">
+            {{> semis}}
+          </div>
+          <div class="tab-pane fade show" id="final">
+            {{> final}}
           </div>
           <div class="tab-pane fade show" id="ranking">
             {{> ranking}}
@@ -42,8 +52,11 @@
 
 
 
+  {{> modalComoJugar}}
 
   {{> footer}} {{> scripts}}
+  <script src="javascripts/temas.js"></script>
+  <script src="javascripts/main.js"></script>
 
 </body>
 
