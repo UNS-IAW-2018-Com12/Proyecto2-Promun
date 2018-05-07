@@ -5,16 +5,14 @@ var ctrlUserPage = require('../controllers/userPageController');
 
 router.get('/', ctrlUserPage.userPage);
 
-/*
-	//GET users Page
-	router.get('/user', ctrlUserPage.isAuthenticated, function(req, res){
-		if(req.isAuthenticated())
-			res.render('user', { user: req.user });
-		else
-			res.render('index', {
-				title: 'Promun'
-			})
-	});
-*/
+//GET users Page
+router.get('/users', ctrlUserPage.isAuthenticated, function(req, res){
+	if(req.isAuthenticated())
+		res.render('user', { user: req.user });
+	else
+		res.render('index', {
+			title: 'Promun'
+		})
+});
 
 module.exports = router;
