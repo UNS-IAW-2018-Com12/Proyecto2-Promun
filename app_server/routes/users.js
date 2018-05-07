@@ -5,6 +5,7 @@ var ctrlUserPage = require('../controllers/userPageController');
 
 router.get('/', ctrlUserPage.userPage);
 
+/*
 	//GET users Page
 	router.get('/user', ctrlUserPage.isAuthenticated, function(req, res){
 		if(req.isAuthenticated())
@@ -14,6 +15,6 @@ router.get('/', ctrlUserPage.userPage);
 				title: 'Promun'
 			})
 	});
-
+*/
 
 module.exports = router;
