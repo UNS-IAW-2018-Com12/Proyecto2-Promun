@@ -15,7 +15,9 @@ router.get('/', function(req, res) {
 //Handle Logout
 router.get('/logut', function(req, res) {
   req.logout();
-  res.redirect('/index');
+  res.render('index', {
+    title: 'Promun'
+  });
 });
 
 module.exports = router;

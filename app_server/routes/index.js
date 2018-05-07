@@ -8,11 +8,10 @@ var isAuthenticated = function (req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/index');
+	res.redirect('/');
 }
 
 module.exports = function(passport){
-
 
 	// Get index page
 	router.get('/', function(req, res) {
@@ -51,9 +50,10 @@ module.exports = function(passport){
 		if(req.isAuthenticated())
 			res.render('user', { user: req.user });
 		else
-			res.redirect('/index');
+			res.render('index', {
+				title: 'Promun'
+			})
 	});
-
 
 	// redirecciona al usuario a facebook para que se autentifique. Cuando termine,
 	// facebook redireccionara al usuario a la all en /login/facebook/callback
@@ -71,7 +71,9 @@ module.exports = function(passport){
 	//Handle Logout
 	router.get('/logut', function(req, res) {
 	  req.logout();
-	  res.redirect('/index');
+		res.render('index', {
+			title: 'Promun'
+		});
 	});
 
 	return router;
