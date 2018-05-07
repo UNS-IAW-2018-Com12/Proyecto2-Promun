@@ -46,12 +46,11 @@ module.exports = function(passport){
 	}));
 	*/
 
-	/*
 	//GET users Page
 	router.get('/users', isAuthenticated, function(req, res){
 		res.render('users', { user: req.user });
 	});
-	*/
+
 
 	// redirecciona al usuario a facebook para que se autentifique. Cuando termine,
 	// facebook redireccionara al usuario a la all en /login/facebook/callback
