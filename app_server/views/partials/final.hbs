@@ -1,0 +1,97 @@
+<h1 class="text-center">Cuartos de Final</h1>
+<div id="accordionCuartos">
+
+  <ul class="list-group my-3">
+    {{#each partidosFaseFinal}}
+      {{#is this.fase 'cuartos'}}
+      <li class="list-group-item">
+        <div class="container-fluid">
+          <div class="row no-gutters">
+            <div class="col-5">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-4">
+                    <img src="./images/banderas/banderaneutra.png" class="border" />
+                  </div>
+                  <div class="col-8">
+                    {{this.equipo1}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2 text-center">
+              {{this.fecha}}
+            </div>
+            <div class="col-5 text-right">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-8">
+                    {{this.equipo2}}
+                  </div>
+                  <div class="col-4">
+                    <img src="./images/banderas/banderaneutra.png" class="border" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <button type="button" class="btn btn-primary my-3" data-toggle="collapse" data-target="#pronostico{{this.nro_partido}}" >Ingresar pronóstico</button>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" data-parent="#accordionCuartos" id="pronostico{{this.nro_partido}}">
+          <div class="card card-body">
+            <form>
+              <div class="row">
+                <div class="col-3 offset-3 text-center">
+                  <div class="form-group">
+                    <label>Goles</label>
+                    <select class="form-control">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-3 text-center">
+                  <div class="form-group">
+                    <label>Goles</label>
+                    <select class="form-control">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-center">
+                  <button type="button" class="btn btn-primary">Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </li>
+      {{/is}}
+    {{/each}}
+  </ul>
+</div>

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+body {
+  padding-top: 6em; }
+
+.navbar-dark .navbar-brand {
+  color: #00bc8c !important;
+  font-weight: bold; }
+
+.menu-lateral {
+  width: 23%; }
+
+.pestañas {
+  margin-bottom: 1em; }
+
+.team-name {
+  font-size: 1em;
+  text-transform: uppercase; }
+
+.encabezado-ranking {
+  color: yellow; }
+
+.username {
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.puntaje {
+  font-size: 2em;
+  font-weight: bold; }
+
+footer {
+  color: white;
+  padding: 1em 0;
+  margin-top: 2em; }
+  footer p {
+    margin: 0;
+    font-style: italic; }
+  footer .img-logo {
+    height: 4em;
+    width: 3em; }
+
+/*# sourceMappingURL=user.css.map */

@@ -1,0 +1,49 @@
+$brand-color: #00bc8c;
+
+body {
+  padding-top: 5em;
+}
+
+.navbar-dark .navbar-brand {
+  color: $brand-color !important;
+  font-weight: bold;
+}
+
+#nosotros {
+
+  padding: 2em 0;
+
+  .img-logo {
+    height: 20em;
+    width: 16em;
+  }
+
+  .carousel img {
+    height: 25em;
+  }
+}
+
+#slides {
+  padding: 2em 0;
+}
+
+#comoJugar {
+
+  padding: 2em 0;
+
+}
+
+footer {
+  color: white;
+  padding: 1em 0;
+
+  p {
+    margin: 0;
+    font-style: italic;
+  }
+
+  .img-logo {
+    height: 4em;
+    width: 3em;
+  }
+}
