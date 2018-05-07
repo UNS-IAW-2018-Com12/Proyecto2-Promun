@@ -29,5 +29,6 @@ var userPage = (req, res) => {
 }
 
 module.exports = {
-  userPage
+  userPage,
+	isAuthenticated
 };
