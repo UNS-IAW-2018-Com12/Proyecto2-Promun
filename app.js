@@ -38,15 +38,16 @@ app.use(flash());
 var initPassport = require('./app_server/passport/init');
 initPassport(passport);
 
+// Configure routers
 var indexRouter = require('./app_server/routes/index')(passport);
 var usersRouter = require('./app_server/routes/users');
 var adminRouter = require('./app_server/routes/admin');
+var logoutRouter = require('./app_server/routers/logout');
 
-// Configure routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
-
+app.use('/logout', logoutRouter);
 
 app.use(function (req, res, next) {
   res.status(404).send("La página solicitada no existe.")
