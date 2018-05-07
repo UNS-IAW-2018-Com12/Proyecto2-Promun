@@ -6,7 +6,7 @@ var ctrlUserPage = require('../controllers/userPageController');
 router.get('/', ctrlUserPage.userPage);
 
 //Handle Logout
-router.get('/signout', function(req, res) {
+router.get('/logut', function(req, res) {
   req.logout();
   res.redirect('/index');
 });
