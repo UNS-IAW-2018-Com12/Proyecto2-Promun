@@ -27,7 +27,7 @@ var userPage = (req, res) => {
 	      });
 	    });
 	  });
-	};
+	}
 	else {
 		res.render('index', {
 			title: 'Promun',
