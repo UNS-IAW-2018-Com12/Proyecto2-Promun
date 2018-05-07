@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 });
 
 //Handle Logout
-router.get('user/logut', function(req, res) {
+router.get('/logut', function(req, res) {
   req.logout();
   res.redirect('/index');
 });

@@ -48,7 +48,10 @@ module.exports = function(passport){
 
 	//GET users Page
 	router.get('/user', isAuthenticated, function(req, res){
-		res.render('user', { user: req.user });
+		if(req.isAuthenticated())
+			res.render('user', { user: req.user });
+		else
+			res.redirect('/index');
 	});
 
 
@@ -66,7 +69,7 @@ module.exports = function(passport){
 	);
 
 	//Handle Logout
-	router.get('user/logut', function(req, res) {
+	router.get('/logut', function(req, res) {
 	  req.logout();
 	  res.redirect('/index');
 	});
