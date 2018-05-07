@@ -15,4 +15,5 @@ router.get('/', ctrlUserPage.userPage);
 			})
 	});
 
+
 module.exports = router;
