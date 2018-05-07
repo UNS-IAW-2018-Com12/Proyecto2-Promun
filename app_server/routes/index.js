@@ -66,14 +66,11 @@ module.exports = function(passport){
 		})
 	);
 
-
-	/*
 	//Handle Logout
-	router.get('/signout', function(req, res) {
-		req.logout();
-		res.redirect('/');
+	router.get('/logut', function(req, res) {
+	  req.logout();
+	  res.redirect('/index');
 	});
-	*/
 
 	return router;
 }
