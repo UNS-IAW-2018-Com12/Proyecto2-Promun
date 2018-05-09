@@ -6,6 +6,7 @@ var PartidoFaseFinal = mongoose.model('PartidoFaseFinal');
 // req.isAuthenticated()
 var userPage = (req, res) => {
   if (req.isAuthenticated()) {
+    console.log("BIENVENIDO!!" + req.username);
     Grupo.find().sort({letra: 'asc'}).then((grupos) => {
       Usuario.find({tipo: 'user'}, {username: 1, puntaje: 1}).sort({puntaje: -1}).then((usuarios) => {
         PartidoFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
@@ -20,6 +21,7 @@ var userPage = (req, res) => {
     });
   }
   else {
+    console.log("NO ESTAS AUTENTICADO, TE VAS AL LOGIN");
     res.redirect('/login');
   }
 }
