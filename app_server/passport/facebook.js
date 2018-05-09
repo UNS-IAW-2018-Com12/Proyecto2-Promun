@@ -13,7 +13,7 @@ module.exports = function(passport) {
         clientID        : fbConfig.appID,
         clientSecret    : fbConfig.appSecret,
         callbackURL     : fbConfig.callbackUrl,
-        profileFields   : ['id', 'displayName', 'email']
+        profileFields   : ['id', 'displayName', 'email', 'picture.type(large)']
     },
 
     // facebook will send back the tokens and profile
@@ -49,6 +49,7 @@ module.exports = function(passport) {
                   if(profile.emails !== undefined){
                     nuevoUsuaio.email = profile.emails[0].value; //puede existir mas de un email, usa el primero
                   }
+                  nuevoUsuaio.foto_path = profile.photos ? profile.photos[0].value : 'images/profile.png'; //obtiene la imagen de perfil actual
                   nuevoUsuaio.puntaje = 0;
 
                   console.log('CREE A', nuevoUsuaio);

@@ -11,6 +11,9 @@ app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'hbs');
 const hbs = require('hbs');
 hbs.registerPartials(__dirname + '/app_server/views/partials');
+hbs.registerPartials(__dirname + '/app_server/views/partials/index');
+hbs.registerPartials(__dirname + '/app_server/views/partials/userpage');
+hbs.registerPartials(__dirname + '/app_server/views/partials/login');
 var helpers = require('handlebars-helpers')();
 hbs.registerHelper(helpers);
 
@@ -43,11 +46,13 @@ var indexRouter = require('./app_server/routes/index')(passport);
 var usersRouter = require('./app_server/routes/users');
 var adminRouter = require('./app_server/routes/admin');
 var logoutRouter = require('./app_server/routes/logout');
+var apiPromunRouter = require('./app_server/routes/promun-api');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/logout', logoutRouter);
+app.use('/api', apiPromunRouter);
 
 app.use(function (req, res, next) {
   res.status(404).send("La página solicitada no existe.")

@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 
+const dbURI = process.env.MLAB_URI;
+
+mongoose.connect(dbURI);
+
 var schemaPartidosFaseFinal = mongoose.Schema({
     fase: {
       type: String,

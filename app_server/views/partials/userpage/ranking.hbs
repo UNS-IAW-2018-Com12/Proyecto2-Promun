@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr class="table-danger text-center encabezado-ranking">
+        <th scope="row" style="width: 30%">Posición</th>
+        <th scope="row" style="width: 40%">Usuario</th>
+        <th scope="row" style="width: 30%"><i class="fas fa-star"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each usuarios}}
+      <tr class="text-center">
+        <td>
+          {{add @index 1}}
+        </td>
+        <td>
+          {{this.username}}
+        </td>
+        <td>
+          {{this.puntaje}}
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

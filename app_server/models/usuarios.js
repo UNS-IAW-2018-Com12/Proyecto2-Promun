@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 
+const dbURI = process.env.MLAB_URI;
+
+mongoose.connect(dbURI);
+
 module.exports = mongoose.model('Usuario',{
   id: {
     type: String,
@@ -12,6 +16,7 @@ module.exports = mongoose.model('Usuario',{
     required: true
     },
   email: String,
+  foto_path: String,
   puntaje: {
     type: Number,
     default: 0,

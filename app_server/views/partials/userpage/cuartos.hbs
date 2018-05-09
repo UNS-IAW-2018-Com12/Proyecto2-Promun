@@ -1,0 +1,10 @@
+<h1 class="text-center">Cuartos de Final</h1>
+<div id="accordionCuartos">
+  <ul class="list-group my-3">
+    {{#each partidosFaseFinal}}
+      {{#is this.fase 'cuartos'}}
+        {{> partidosFaseFinal}}
+      {{/is}}
+    {{/each}}
+  </ul>
+</div>

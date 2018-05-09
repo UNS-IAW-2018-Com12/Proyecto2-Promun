@@ -1,36 +1,12 @@
 $brand-color: #00bc8c;
 
 body {
-  padding-top: 5em;
+  padding-top: 6em;
 }
 
 .navbar-dark .navbar-brand {
   color: $brand-color !important;
   font-weight: bold;
-}
-
-#nosotros {
-
-  padding: 2em 0;
-
-  .img-logo {
-    height: 20em;
-    width: 16em;
-  }
-
-  .carousel img {
-    height: 25em;
-  }
-}
-
-#slides {
-  padding: 2em 0;
-}
-
-#comoJugar {
-
-  padding: 2em 0;
-
 }
 
 footer {

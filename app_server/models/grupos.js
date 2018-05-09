@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 
+const dbURI = process.env.MLAB_URI;
+
+mongoose.connect(dbURI);
+
 var schemaGrupo = mongoose.Schema({
   letra: {
     type: String,
@@ -13,6 +17,10 @@ var schemaGrupo = mongoose.Schema({
       unique: true
     },
     descripcion: {
+      type: String,
+      required: true
+    },
+    bandera_path: {
       type: String,
       required: true
     },
@@ -62,44 +70,7 @@ var schemaGrupo = mongoose.Schema({
         default: 0
       }
     }
-  }],
-  partidos: [
-    {
-      equipo1: {
-        type: String,
-        required: true
-      },
-      equipo2: {
-        type: String,
-        required: true
-        },
-      fecha: {
-        type: String,
-        required: true
-      },
-      pronosticos: [
-        {
-          user: {
-            type: String,
-            required: true
-          },
-          golesEquipo1: {
-            type: Number,
-            required: true
-          },
-          golesEquipo2: {
-            type: Number,
-            required: true
-          },
-          estrellas: {
-            type: Number,
-            min: 1,
-            max: 5
-          }
-        }
-      ]
-    }
-  ]
+  }]
 });
 
 mongoose.model('Grupo', schemaGrupo);

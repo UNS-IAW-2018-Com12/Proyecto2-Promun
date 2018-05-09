@@ -23,13 +23,5 @@ module.exports = function(passport){
 		})
 	);
 
-	// maneja el logout
-	router.get('/logut', function(req, res) {
-	  req.logout();
-		res.render('index', {
-			title: 'Promun'
-		});
-	});
-
 	return router;
 }
