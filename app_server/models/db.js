@@ -1,11 +1,6 @@
 var mongoose = require('mongoose');
 
 const dbURI = process.env.MLAB_URI;
-<<<<<<< HEAD
-=======
-//const dbURI = 'mongodb://localhost:27017/Promun'
->>>>>>> 60d96d707133cf5db08108ad2b8e7af9e45b4572
-
 mongoose.connect(dbURI);
 
 var db = mongoose.connection;

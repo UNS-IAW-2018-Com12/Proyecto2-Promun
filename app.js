@@ -18,14 +18,11 @@ hbs.registerPartials(__dirname + '/app_server/views/partials/login');
 var helpers = require('handlebars-helpers')();
 hbs.registerHelper(helpers);
 
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-<<<<<<< .merge_file_a15356
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 // Configuring Passport
 var passport = require('passport');
@@ -35,18 +32,11 @@ app.use(passport.session());
 
 // Using the flash middleware provided by connect-flash to store messages in session
 // and displaying in templates
-
 var expressSession = require('express-session');
 app.use(expressSession({secret: "Es un secreto"}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Configuring Passport
-var passport = require('passport');
-app.use(passport.initialize());
-app.use(passport.session());
-
 // Confuring Connecting-flash
-
 var flash = require('connect-flash');
 app.use(flash());
 
@@ -54,7 +44,7 @@ app.use(flash());
 var initPassport = require('./app_server/passport/init');
 initPassport(passport);
 
-
+// Configure routes
 var indexRouter = require('./app_server/routes/index')(passport);
 var usersRouter = require('./app_server/routes/users');
 var adminRouter = require('./app_server/routes/admin');
