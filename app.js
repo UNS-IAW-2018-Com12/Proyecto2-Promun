@@ -12,12 +12,9 @@ app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'hbs');
 const hbs = require('hbs');
 hbs.registerPartials(__dirname + '/app_server/views/partials');
-<<<<<<< .merge_file_a15356
-=======
 hbs.registerPartials(__dirname + '/app_server/views/partials/index');
 hbs.registerPartials(__dirname + '/app_server/views/partials/userpage');
 hbs.registerPartials(__dirname + '/app_server/views/partials/login');
->>>>>>> .merge_file_a08516
 var helpers = require('handlebars-helpers')();
 hbs.registerHelper(helpers);
 
@@ -38,7 +35,7 @@ app.use(passport.session());
 
 // Using the flash middleware provided by connect-flash to store messages in session
 // and displaying in templates
-=======
+
 var expressSession = require('express-session');
 app.use(expressSession({secret: "Es un secreto"}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -49,7 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Confuring Connecting-flash
->>>>>>> .merge_file_a08516
+
 var flash = require('connect-flash');
 app.use(flash());
 
@@ -57,27 +54,18 @@ app.use(flash());
 var initPassport = require('./app_server/passport/init');
 initPassport(passport);
 
-<<<<<<< .merge_file_a15356
-var indexRouter = require('./app_server/routes/index')(passport);
-var usersRouter = require('./app_server/routes/users');
-var adminRouter = require('./app_server/routes/admin');
-=======
 
 var indexRouter = require('./app_server/routes/index')(passport);
 var usersRouter = require('./app_server/routes/users');
 var adminRouter = require('./app_server/routes/admin');
 var logoutRouter = require('./app_server/routes/logout');
 var apiPromunRouter = require('./app_server/routes/promun-api');
->>>>>>> .merge_file_a08516
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
-<<<<<<< .merge_file_a15356
-=======
 app.use('/logout', logoutRouter);
 app.use('/api', apiPromunRouter);
->>>>>>> .merge_file_a08516
 
 app.use(function (req, res, next) {
   res.status(404).send("La página solicitada no existe.")
