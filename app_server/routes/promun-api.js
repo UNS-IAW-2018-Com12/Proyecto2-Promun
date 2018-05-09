@@ -11,5 +11,8 @@ router.post('/agregarPronosticoFaseFinal', ctrlAPI.addPronosticoFaseFinal);
 
 router.get('/descripcion/:equipo', ctrlAPI.getDescripcionEquipo);
 
+router.post('/cargarResultado', ctrlAPI.cargarResultadoGrupo);
+
+router.post('/cerrarPartido', ctrlAPI.cerrarPartidoGrupo);
 
 module.exports = router;

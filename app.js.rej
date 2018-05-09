@@ -1,0 +1,9 @@
+diff a/app.js b/app.js	(rejected hunks)
+@@ -15,6 +15,7 @@
+ hbs.registerPartials(__dirname + '/app_server/views/partials/index');
+ hbs.registerPartials(__dirname + '/app_server/views/partials/userpage');
+ hbs.registerPartials(__dirname + '/app_server/views/partials/login');
++hbs.registerPartials(__dirname + '/app_server/views/partials/admin');
+ var helpers = require('handlebars-helpers')();
+ hbs.registerHelper(helpers);
+ 

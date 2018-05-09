@@ -1,10 +1,6 @@
 var mongoose = require('mongoose');
 
-const dbURI = process.env.MLAB_URI;
-
-mongoose.connect(dbURI);
-
-var schemaPartidosFaseFinal = mongoose.Schema({
+var schemaPartidoFaseFinal = mongoose.Schema({
     fase: {
       type: String,
       required: true
@@ -23,6 +19,16 @@ var schemaPartidosFaseFinal = mongoose.Schema({
     },
     fecha: {
       type: String,
+      required: true
+    },
+    resultadoGoles1: {
+      type: Number,
+    },
+    resultadoGoles2: {
+      type: Number,
+    },
+    cerrado: {
+      type: Boolean,
       required: true
     },
     pronosticos: [
@@ -48,4 +54,4 @@ var schemaPartidosFaseFinal = mongoose.Schema({
     ]
 });
 
-mongoose.model('PartidosFaseFinal', schemaPartidosFaseFinal);
+mongoose.model('PartidoFaseFinal', schemaPartidoFaseFinal);

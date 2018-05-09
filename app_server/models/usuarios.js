@@ -1,11 +1,16 @@
 var mongoose = require('mongoose');
 
+<<<<<<< HEAD
 const dbURI = process.env.MLAB_URI;
 
 mongoose.connect(dbURI);
 
+var usuarioSchema = mongoose.Schema({
+  username: {
+=======
 module.exports = mongoose.model('Usuario',{
   id: {
+>>>>>>> 60d96d707133cf5db08108ad2b8e7af9e45b4572
     type: String,
     required: true,
     unique: true
@@ -23,60 +28,3 @@ module.exports = mongoose.model('Usuario',{
     min: 0,
     }
 });
-
-
-  /*
-var usuarioSchema = mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-    unique: true
-    },
-  access_token: String,
-  username: {
-    type: String,
-    required: true
-    },
-  email: String,
-  puntaje: {
-    type: Number,
-    default: 0,
-    min: 0,
-    }
-});
-
-mongoose.model('Usuario', usuarioSchema);
-
-  username: {
-    type: String,
-    required: true,
-    unique: true
-    },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  tipo: {
-    type: String,
-    required: true,
-    default: 'user'
-  },
-  foto_path: {
-    type: String
-  },
-  descripcion: {
-    type: String,
-    trim: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  puntaje: {
-    type: Number,
-    default: 0,
-    min: 0
-  },
-});
-*/
