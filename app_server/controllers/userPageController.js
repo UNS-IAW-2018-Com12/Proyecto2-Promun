@@ -3,7 +3,6 @@ var Grupo = mongoose.model('Grupo');
 var Usuario = mongoose.model('Usuario');
 var PartidoFaseFinal = mongoose.model('PartidoFaseFinal');
 
-// req.isAuthenticated()
 var userPage = (req, res) => {
   if (req.isAuthenticated()) {
     console.log("BIENVENIDO!!" + req.username);
@@ -21,7 +20,7 @@ var userPage = (req, res) => {
     });
   }
   else {
-    console.log("NO ESTAS AUTENTICADO, TE VAS AL LOGIN");
+    console.log("NO ESTAS AUTENTICADO... TE VAS AL LOGIN -.-");
     res.redirect('/login');
   }
 }
