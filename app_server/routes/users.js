@@ -4,13 +4,14 @@ var router = express.Router();
 var ctrlUserPage = require('../controllers/userPageController');
 
 //Asegura que los usuarios que intentan interactuar con la app esten autenticados
+/*
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
   res.redirect('/login')
 }
-
-router.get('/', ensureAuthenticated, ctrlUserPage.userPage);
+*/
+router.get('/', ctrlUserPage.userPage);
 
 module.exports = router;
