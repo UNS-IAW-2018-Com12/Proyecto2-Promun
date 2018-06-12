@@ -11,7 +11,6 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/')
 }
 
-
 router.post('/agregarPronostico', ensureAuthenticated, ctrlAPI.addPronostico);
 
 router.post('/borrarPronostico', ensureAuthenticated, ctrlAPI.deletePronostico);
