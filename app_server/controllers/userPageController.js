@@ -7,19 +7,19 @@ var userPage = (req, res) => {
     console.log("BIENVENIDO!!" + req.user);
     Grupo.find().sort({letra: 'asc'}).then((grupos) => {
       Usuario.find().sort({puntaje: -1}).then((usuarios) => {
-          Usuario.findOne({'id' : profile.id}).then((usuario) => {
-            PartidoFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
-              res.render('user', {
-                title: 'Promun',
-                grupos: grupos,
-                usuarios : usuarios,
-                usuario: usuario,
-                partidosFaseFinal: partidos
-              });
+        Usuario.findOne({'id' : req.user.id}).then((usuario) => {
+          PartidoFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
+            res.render('user', {
+              title: 'Promun',
+              grupos: grupos,
+              usuarios : usuarios,
+              usuario: usuario,
+              partidosFaseFinal: partidos
             });
           });
         });
-    });
+      });
+  });
 }
 
 module.exports = {
