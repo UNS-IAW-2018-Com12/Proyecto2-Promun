@@ -3,16 +3,29 @@ var router = express.Router();
 
 var ctrlAPI = require('../controllers/apiController');
 
-router.post('/agregarPronostico', ctrlAPI.addPronostico);
+//Funcion para proteccion de rutas
+function authenticate(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    } else {
+        res.redirect('/');
+    }
+}
 
-router.post('/borrarPronostico', ctrlAPI.deletePronostico);
+router.post('/agregarPronostico', authenticate, (req, res, next) => {
+    ctrlAPI.addPronostico;
+});
 
-router.post('/agregarPronosticoFaseFinal', ctrlAPI.addPronosticoFaseFinal);
+router.post('/borrarPronostico', authenticate, (req, res, next) => {
+    ctrlAPI.deletePronostico;
+});
 
-router.get('/descripcion/:equipo', ctrlAPI.getDescripcionEquipo);
+router.post('/agregarPronosticoFaseFinal', authenticate, (req, res, next) => {
+    ctrlAPI.addPronosticoFaseFinal;
+});
 
-router.post('/cargarResultado', ctrlAPI.cargarResultadoGrupo);
-
-router.post('/cerrarPartido', ctrlAPI.cerrarPartidoGrupo);
+router.get('/descripcion/:equipo', authenticate, (req, res, next) => {
+    ctrlAPI.getDescripcionEquipo;
+});
 
 module.exports = router;

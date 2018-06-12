@@ -44,13 +44,11 @@ initPassport(passport);
 // Configure routers
 var indexRouter = require('./app_server/routes/index')(passport);
 var usersRouter = require('./app_server/routes/users');
-var adminRouter = require('./app_server/routes/admin');
 var logoutRouter = require('./app_server/routes/logout');
 var apiPromunRouter = require('./app_server/routes/promun-api');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/admin', adminRouter);
 app.use('/logout', logoutRouter);
 app.use('/api', apiPromunRouter);
 
