@@ -50,7 +50,7 @@ module.exports = function(passport) {
                     nuevoUsuaio.email = profile.emails[0].value; //puede existir mas de un email, usa el primero
                   }
                   nuevoUsuaio.foto_path = "graph.facebook.com/" +
-                                          profile.userName +
+                                          profile.displayName +
                                           "/picture" +
                                           "?width=200&height=200" +
                                           "&access_token=" +
