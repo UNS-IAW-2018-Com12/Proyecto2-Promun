@@ -4,7 +4,6 @@ var Usuario = mongoose.model('Usuario');
 var PartidoFaseFinal = mongoose.model('PartidoFaseFinal');
 
 var userPage = (req, res) => {
-  if (req.isAuthenticated()) {
     console.log("BIENVENIDO!!" + req.username);
     Grupo.find().sort({letra: 'asc'}).then((grupos) => {
       Usuario.find({tipo: 'user'}, {username: 1, puntaje: 1}).sort({puntaje: -1}).then((usuarios) => {
@@ -18,11 +17,6 @@ var userPage = (req, res) => {
         });
       });
     });
-  }
-  else {
-    console.log("NO ESTAS AUTENTICADO... TE VAS AL LOGIN -.-");
-    res.redirect('/login');
-  }
 }
 
 module.exports = {
