@@ -12,6 +12,7 @@ function authenticate(req, res, next) {
     }
 }
 
+//Rutas de la aplicacion
 router.post('/agregarPronostico', authenticate, (req, res, next) => {
     ctrlAPI.addPronostico;
 });
