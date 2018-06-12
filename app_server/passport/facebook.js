@@ -49,7 +49,7 @@ module.exports = function(passport) {
                   if(profile.emails !== undefined) {
                     nuevoUsuaio.email = profile.emails[0].value; //puede existir mas de un email, usa el primero
                   }
-                  snuevoUsuaio.foto_path = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';  //obtiene la imagen de perfil actual
+                  nuevoUsuaio.foto_path = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';  //obtiene la imagen de perfil actual
                   nuevoUsuaio.puntaje = 0;
 
                   console.log('CREE A', nuevoUsuaio);
