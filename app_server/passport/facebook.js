@@ -49,7 +49,12 @@ module.exports = function(passport) {
                   if(profile.emails !== undefined){
                     nuevoUsuaio.email = profile.emails[0].value; //puede existir mas de un email, usa el primero
                   }
-                  nuevoUsuaio.foto_path = profile.photos ? profile.photos[0].value : 'images/profile.png'; //obtiene la imagen de perfil actual
+                  nuevoUsuaio.foto_path = "graph.facebook.com/" +
+                                          profile.username +
+                                          "/picture" +
+                                          "?width=200&height=200" +
+                                          "&access_token=" +
+                                          access_token;  //obtiene la imagen de perfil actual
                   nuevoUsuaio.puntaje = 0;
 
                   console.log('CREE A', nuevoUsuaio);
