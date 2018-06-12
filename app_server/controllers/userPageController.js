@@ -6,16 +6,19 @@ var PartidoFaseFinal = mongoose.model('PartidoFaseFinal');
 var userPage = (req, res) => {
     console.log("BIENVENIDO!!" + req.username);
     Grupo.find().sort({letra: 'asc'}).then((grupos) => {
-      Usuario.findOne({ 'id' : profile.id}).sort({puntaje: -1}).then((usuario) => {
-        PartidoFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
-          res.render('user', {
-            title: 'Promun',
-            grupos: grupos,
-            usuario: usuario,
-            partidosFaseFinal: partidos
+      Usuario.find({tipo: 'user'}, {username: 1, puntaje: 1}).sort({puntaje: -1}).then((usuarios) => {
+          Usuario.findOne({'id' : profile.id}).then((usuario) => {
+            PartidoFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
+              res.render('user', {
+                title: 'Promun',
+                grupos: grupos,
+                usuarios : usuarios,
+                usuario: usuario,
+                partidosFaseFinal: partidos
+              });
+            });
           });
         });
-      });
     });
 }
 
