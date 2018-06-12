@@ -4,9 +4,9 @@ var Usuario = mongoose.model('Usuario');
 var PartidoFaseFinal = mongoose.model('PartidoFaseFinal');
 
 var userPage = (req, res) => {
-    console.log("BIENVENIDO!!" + req.username);
+    console.log("BIENVENIDO!!" + req.user);
     Grupo.find().sort({letra: 'asc'}).then((grupos) => {
-      Usuario.find({tipo: 'user'}, {username: 1, puntaje: 1}).sort({puntaje: -1}).then((usuarios) => {
+      Usuario.find().sort({puntaje: -1}).then((usuarios) => {
           Usuario.findOne({'id' : profile.id}).then((usuario) => {
             PartidoFaseFinal.find().sort({nro_partido: 'asc'}).then((partidos) => {
               res.render('user', {
