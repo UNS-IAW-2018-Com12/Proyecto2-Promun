@@ -13,7 +13,7 @@ var userPage = (req, res) => {
               title: 'Promun',
               grupos: grupos,
               usuarios: usuarios,
-              username: usuario.username,
+              nombre: usuario.username,
               foto: usuario.foto_path,
               puntaje: usuario.puntaje,
               partidosFaseFinal: partidos
