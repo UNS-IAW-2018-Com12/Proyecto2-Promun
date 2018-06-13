@@ -12,8 +12,10 @@ var userPage = (req, res) => {
             res.render('user', {
               title: 'Promun',
               grupos: grupos,
-              usuarios : usuarios,
-              usuario: usuario,
+              usuarios: usuarios,
+              username: usuario.username,
+              foto: usuario.foto_path,
+              puntaje: usuario.puntaje,
               partidosFaseFinal: partidos
             });
           });
