@@ -51,12 +51,10 @@ module.exports = function(passport) {
                   }
                   nuevoUsuaio.foto_path = "http://graph.facebook.com/" +
                                            profile.id +
-                                          "/picture";
-
-                                          //"?width=200&height=200";
-                                          //+
-                                          //"&access_token=" +
-                                          //access_token;  //obtiene la imagen de perfil actual
+                                          "/picture" +
+                                          "?width=200&height=200" +
+                                          "&access_token=" +
+                                          access_token;  //obtiene la imagen de perfil actual
                   nuevoUsuaio.puntaje = 0;
 
                   console.log('CREE A', nuevoUsuaio);
