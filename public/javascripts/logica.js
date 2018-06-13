@@ -6,7 +6,6 @@ function agregarPronosticoFaseFinal(button) {
   var equipo1 = equipos.eq(0).text();
   var equipo2 = equipos.eq(1).text();
   $.post("/api/agregarPronosticoFaseFinal", {
-      "user": "liomessi",
       "equipo1": equipo1,
       "equipo2": equipo2,
       "golesEquipo1": golesEquipo1,
@@ -38,7 +37,6 @@ function agregarPronostico(button) {
   var equipo1 = equipos.eq(0).text();
   var equipo2 = equipos.eq(1).text();
   $.post("/api/agregarPronostico", {
-      "user": "liomessi",
       "equipo1": equipo1,
       "equipo2": equipo2,
       "golesEquipo1": golesEquipo1,
@@ -67,7 +65,6 @@ function borrarPronostico(button) {
   var equipo1 = equipos.eq(0).text();
   var equipo2 = equipos.eq(1).text();
   $.post("/api/borrarPronostico", {
-      "user": "liomessi",
       "equipo1": equipo1,
       "equipo2": equipo2
     },

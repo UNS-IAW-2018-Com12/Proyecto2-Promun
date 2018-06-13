@@ -13,7 +13,7 @@ var addPronostico = (req, res) => {
     partidosGrupo.forEach((partido) => {
       if (partido.equipo1 === req.body.equipo1 && partido.equipo2 === req.body.equipo2) {
         var pronostico = {
-          user: req.body.user
+          user: req.user.username
         }
         var pronosticosPartido = partido.pronosticos;
         var existePronostico = false;
@@ -47,7 +47,7 @@ var deletePronostico = (req, res) => {
       if (partido.equipo1 === req.body.equipo1 && partido.equipo2 === req.body.equipo2) {
         var pronosticosPartido = partido.pronosticos;
         pronosticosPartido.forEach((pronosticoPartido) => {
-          if (pronosticoPartido.user === req.body.user) {
+          if (pronosticoPartido.user === req.user.username) {
             pronosticoPartido.remove();
           }
         });
