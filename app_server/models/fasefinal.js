@@ -21,13 +21,21 @@ var schemaPartidoFaseFinal = mongoose.Schema({
       type: String,
       required: true
     },
-    resultadoGoles1: {
+    golesEquipo1: {
       type: Number,
     },
-    resultadoGoles2: {
+    golesEquipo2: {
       type: Number,
+    },
+    creado: {
+      type: Boolean,
+      required: true
     },
     cerrado: {
+      type: Boolean,
+      required: true
+    },
+    jugado: {
       type: Boolean,
       required: true
     },

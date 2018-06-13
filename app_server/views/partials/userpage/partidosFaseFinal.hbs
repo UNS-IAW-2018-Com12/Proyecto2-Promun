@@ -2,31 +2,50 @@
   <div class="container-fluid">
     <div class="row text-center">
       <div class="col-4">
-        <img src="./images/banderas/banderaneutra.png" class="border" />
-        <br>
-        <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo1}}</a>
-      </div>
+        {{#if this.creado}}
+          <img src="./images/banderas/{{this.equipo1}}.png" class="border" />
+          <br>
+          <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo1}}</a>
+        {{else}}
+          <img src="./images/banderas/banderaneutra.png" class="border" />
+        {{/if}}
       <div class="col-1 align-self-center">
-        {{#each pronosticos}}
-          <span class="score">
-            {{#is this.user username}}{{this.golesEquipo1}}{{/is}}
-          </span>
-        {{/each}}
+        {{#if this.jugado}}
+          <span class="team-name"> {{this.golesEquipo1}} </span>
+        {{else}}
+          {{#if this.cerrado}}
+            {{#each pronosticos}}
+              <span class="score">
+                {{#is this.user username}}{{this.golesEquipo1}}{{/is}}
+              </span>
+            {{/each}}
+          {{/if}}
+        {{/if}}
       </div>
       <div class="col-2 align-self-center">
         {{this.fecha}}
       </div>
       <div class="col-1 align-self-center">
-        {{#each pronosticos}}
-          <span class="score">
-            {{#is this.user username}}{{this.golesEquipo2}}{{/is}}
-          </span>
-        {{/each}}
+        {{#if this.jugado}}
+          <span class="team-name"> {{this.golesEquipo2}} </span>
+        {{else}}
+          {{#if this.cerrado}}
+            {{#each pronosticos}}
+              <span class="score">
+                {{#is this.user username}}{{this.golesEquipo2}}{{/is}}
+              </span>
+            {{/each}}
+          {{/if}}
+        {{/if}}
       </div>
       <div class="col-4">
-        <img src="./images/banderas/banderaneutra.png" class="border" />
-        <br>
-        <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo2}}</a>
+        {{#if this.creado}}
+          <img src="./images/banderas/{{this.equipo2}}.png" class="border" />
+          <br>
+          <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo2}}</a>
+        {{else}}
+          <img src="./images/banderas/banderaneutra.png" class="border" />
+        {{/if}}
       </div>
     </div>
     <div class="row">
