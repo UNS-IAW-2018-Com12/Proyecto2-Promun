@@ -125,5 +125,6 @@ module.exports = {
   addPronostico,
   deletePronostico,
   getDescripcionEquipo,
-  addPronosticoFaseFinal
+  addPronosticoFaseFinal,
+  deletePronosticoFaseFinal
 };
