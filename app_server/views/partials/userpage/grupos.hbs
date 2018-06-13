@@ -102,8 +102,9 @@
                   </div>
                   <div class="row">
                     <div class="col text-center">
-                      {{#unless this.cerrado}} <button type="button" class="btn btn-primary my-3" data-toggle="collapse" data-target="#pronostico{{../letra}}{{@index}}" >Ingresar pronóstico</button> {{/unless}}
-                      {{#if this.jugado}} <span class="team-name"> Partido jugado </span>
+                      {{#unless this.cerrado}} <button type="button" class="btn btn-primary my-3" data-toggle="collapse" data-target="#pronostico{{../letra}}{{@index}}">Ingresar pronóstico</button> {{/unless}}
+                      {{#if this.cerrado}} <span class="team-name"> Partido cerrado </span> {{/if}}
+                      {{#if this.jugado}} <span class="team-name"> Partido jugado </span> {{/if}}
                     </div>
                   </div>
                 </div>
