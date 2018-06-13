@@ -17,7 +17,7 @@
         {{else}}
           {{#each pronosticos}}
             <span class="score">
-              {{#is this.user username}}{{this.golesEquipo1}}{{/is}}
+              {{#is this.user @root.username}}{{this.golesEquipo1}}{{/is}}
             </span>
           {{/each}}
         {{/if}}
@@ -31,7 +31,7 @@
         {{else}}
           {{#each pronosticos}}
             <span class="score">
-              {{#is this.user username}}{{this.golesEquipo2}}{{/is}}
+              {{#is this.user @root.username}}{{this.golesEquipo2}}{{/is}}
             </span>
           {{/each}}
         {{/if}}
