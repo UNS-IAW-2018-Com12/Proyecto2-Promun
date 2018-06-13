@@ -40,7 +40,7 @@ var deletePronosticoFaseFinal = (req, res) => {
         }
       });
       partido.save().then((doc) => {
-        res.send(pronostico);
+        res.send('Pronostico eliminado');
       }, (e) => {
         console.log(e);
       });
