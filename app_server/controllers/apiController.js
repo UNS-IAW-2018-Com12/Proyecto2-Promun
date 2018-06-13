@@ -18,7 +18,7 @@ var addPronostico = (req, res) => {
         var pronosticosPartido = partido.pronosticos;
         var existePronostico = false;
         pronosticosPartido.forEach((pronosticoPartido) => {
-          if (pronosticoPartido.user === req.body.user) {
+          if (pronosticoPartido.user == req.body.user) {
             pronostico = pronosticoPartido;
             existePronostico = true;
           }
