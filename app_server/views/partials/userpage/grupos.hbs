@@ -80,7 +80,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#if this.jugado}}
-                              {{G1}}
+                              <span> {{this.golesEquipo1}} </span>
                           {{else}}
                             {{#each pronosticos}}
                               {{#is this.user @root.nombre}} {{this.golesEquipo1}} {{/is}}
@@ -94,7 +94,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#if this.jugado}}
-                              {{G2}}
+                              <span> {{this.golesEquipo2}} </span>
                           {{else}}
                             {{#each pronosticos}}
                               {{#is this.user @root.nombre}} {{this.golesEquipo2}} {{/is}}
