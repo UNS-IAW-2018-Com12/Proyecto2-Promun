@@ -13,7 +13,6 @@
 </div>
 
 <div class="tab-content" id="myTabContent">
-  <span class="username">hola soy {{nombre}}</span>
   {{#each grupos}}
     <div class="tab-pane fade show {{#is this.letra 'A'}}active{{/is}}" id="grupo{{this.letra}}" role="tabpanel" aria-labelledby="grupo-a-tab">
       <div class="row">
@@ -81,7 +80,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#each pronosticos}}
-                            {{#is this.user nombre}} {{this.golesEquipo1}} {{/is}}
+                            {{#is this.user @root.nombre}} {{this.golesEquipo1}} {{/is}}
                           {{/each}}
                         </span>
                     </div>
@@ -91,7 +90,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#each pronosticos}}
-                            {{#is this.user nombre}} {{this.golesEquipo1}} {{/is}}
+                            {{#is this.user @root.nombre}} {{this.golesEquipo1}} {{/is}}
                           {{/each}}
                         </span>
                     </div>
