@@ -3,7 +3,7 @@
     <div class="row text-center">
       <div class="col-4">
         {{#if this.creado}}
-          <img src="./images/banderas/banderaneutra.png" class="border" />
+          <img src="./images/banderas/{{this.equipo1}}.png" class="border" />
           <br>
           <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo1}}</a>
         {{else}}
@@ -31,9 +31,14 @@
 
       </div>
       <div class="col-4">
-        <img src="./images/banderas/banderaneutra.png" class="border" />
-        <br>
-        <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo2}}</a>
+        {{#if this.creado}}
+          <img src="./images/banderas/{{this.equipo2}}.png" class="border" />
+          <br>
+          <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo2}}</a>
+        {{else}}
+          <img src="./images/banderas/banderaneutra.png" class="border" />
+          <br>
+        {{/if}}
       </div>
     </div>
     <div class="row">
