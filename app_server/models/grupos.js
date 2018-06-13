@@ -77,10 +77,10 @@ var schemaGrupo = mongoose.Schema({
         type: String,
         required: true
       },
-      resultadoGoles1: {
+      golesEquipo1: {
         type: Number,
       },
-      resultadoGoles2: {
+      golesEquipo2: {
         type: Number,
       },
       cerrado: {

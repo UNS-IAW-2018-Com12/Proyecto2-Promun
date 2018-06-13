@@ -71,8 +71,8 @@ function borrarPronostico(button) {
     function(data, status) {
       if (status === 'success') {
         var goles = $(button).closest('li').find('.score');
-        goles.eq(0).text("(-)");
-        goles.eq(1).text("(-)");
+        goles.eq(0).text("");
+        goles.eq(1).text("");
         var idCollapse = $(button).closest('li').find('.collapse').attr('id');
         $(button)
           .removeClass('btn-danger')
