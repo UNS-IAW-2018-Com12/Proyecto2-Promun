@@ -87,6 +87,10 @@ var schemaGrupo = mongoose.Schema({
         type: Boolean,
         required: true
       },
+      jugado: {
+        type: Boolean,
+        required: true
+      },
       pronosticos: [
         {
           user: {
