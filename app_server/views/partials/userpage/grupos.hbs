@@ -80,9 +80,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#each pronosticos}}
-                            {{#ifCond this.user username}}
-                              {this.golesEquipo1}}
-                            {{/ifCond}}
+                            {{#is this.user username}} {{this.golesEquipo1}} {{/is}}
                           {{/each}}
                         </span>
                     </div>
@@ -92,9 +90,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#each pronosticos}}
-                            {{#ifCond this.user username}}
-                              {this.golesEquipo1}}
-                            {{/ifCond}}
+                            {{#eq this.user username}} {{this.golesEquipo1}} {{/eq}}
                           {{/each}}
                         </span>
                     </div>
