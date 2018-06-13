@@ -2,9 +2,14 @@
   <div class="container-fluid">
     <div class="row text-center">
       <div class="col-4">
-        <img src="./images/banderas/banderaneutra.png" class="border" />
-        <br>
-        <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo1}}</a>
+        {{#if this.creado}}
+          <img src="./images/banderas/banderaneutra.png" class="border" />
+          <br>
+          <a class="equipo" data-toggle="modal" data-target="#modalEquipo" onclick="cargarModalEquipo($(this).text())">{{this.equipo1}}</a>
+        {{else}}
+          <img src="./images/banderas/banderaneutra.png" class="border" />
+          <br>
+        {{/if}}
       </div>
       <div class="col-1 align-self-center">
         {{#each pronosticos}}
@@ -17,11 +22,13 @@
         {{this.fecha}}
       </div>
       <div class="col-1 align-self-center">
+
         {{#each pronosticos}}
           <span class="score">
             {{#is this.user username}}{{this.golesEquipo2}}{{/is}}
           </span>
         {{/each}}
+
       </div>
       <div class="col-4">
         <img src="./images/banderas/banderaneutra.png" class="border" />
@@ -41,7 +48,7 @@
               <button type="button" class="btn btn-primary my-3" data-toggle="collapse" data-target="#pronostico{{../letra}}{{@index}}">Ingresar pronóstico</button>
             {{/if}}
           {{/if}}
-        {{/if}}  
+        {{/if}}
       </div>
     </div>
   </div>
