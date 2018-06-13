@@ -80,8 +80,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#each pronosticos}}
-                          {{#is this.user 'liomessi'}}{{this.golesEquipo1}}{{/is}}
-                          {{#isnt this.user 'liomessi'}}(-){{/isnt}}
+                          {{#is this.user usuario.username}}{{this.golesEquipo1}}{{/is}}
                           {{/each}}
                         </span>
                     </div>
@@ -91,8 +90,7 @@
                     <div class="col-1 align-self-center">
                         <span class="score">
                           {{#each pronosticos}}
-                          {{#is this.user 'liomessi'}}{{this.golesEquipo2}}{{/is}}
-                          {{#isnt this.user 'liomessi'}}(-){{/isnt}}
+                          {{#is this.user usuario.username}}{{this.golesEquipo2}}{{/is}}
                           {{/each}}
                         </span>
                     </div>
