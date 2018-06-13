@@ -79,9 +79,13 @@
                     </div>
                     <div class="col-1 align-self-center">
                         <span class="score">
-                          {{#each pronosticos}}
-                            {{#is this.user @root.nombre}} {{this.golesEquipo1}} {{/is}}
-                          {{/each}}
+                          {{#if this.jugado}}
+                              {{this.golesEquipo1}}
+                          {{else}}
+                            {{#each pronosticos}}
+                              {{#is this.user @root.nombre}} {{this.golesEquipo1}} {{/is}}
+                            {{/each}}
+                          {{/if}}
                         </span>
                     </div>
                     <div class="col-2 align-self-center">
@@ -89,9 +93,13 @@
                     </div>
                     <div class="col-1 align-self-center">
                         <span class="score">
-                          {{#each pronosticos}}
-                            {{#is this.user @root.nombre}} {{this.golesEquipo1}} {{/is}}
-                          {{/each}}
+                          {{#if this.jugado}}
+                              {{this.golesEquipo2}}
+                          {{else}}
+                            {{#each pronosticos}}
+                              {{#is this.user @root.nombre}} {{this.golesEquipo1}} {{/is}}
+                            {{/each}}
+                          {{/if}}
                         </span>
                     </div>
                     <div class="col-4">
