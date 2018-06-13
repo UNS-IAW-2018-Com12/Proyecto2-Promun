@@ -17,6 +17,8 @@ router.post('/borrarPronostico', ensureAuthenticated, ctrlAPI.deletePronostico);
 
 router.post('/agregarPronosticoFaseFinal', ensureAuthenticated, ctrlAPI.addPronosticoFaseFinal);
 
+router.post('/borrarPronosticoFaseFinal', ensureAuthenticated, ctrlAPI.deletePronosticoFaseFinal);
+
 router.get('/descripcion/:equipo', ensureAuthenticated, ctrlAPI.getDescripcionEquipo);
 
 module.exports = router;

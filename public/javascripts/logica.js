@@ -23,7 +23,7 @@ function agregarPronosticoFaseFinal(button) {
           .addClass('btn-danger')
           .removeAttr('data-toggle')
           .removeAttr('data-target')
-          .attr("onclick", "borrarPronostico(this)")
+          .attr("onclick", "borrarPronosticoFaseFinal(this)")
           .text("Borrar pronóstico");
       }
     });
@@ -65,6 +65,32 @@ function borrarPronostico(button) {
   var equipo1 = equipos.eq(0).text();
   var equipo2 = equipos.eq(1).text();
   $.post("/api/borrarPronostico", {
+      "equipo1": equipo1,
+      "equipo2": equipo2
+    },
+    function(data, status) {
+      if (status === 'success') {
+        var goles = $(button).closest('li').find('.score');
+        goles.eq(0).text("");
+        goles.eq(1).text("");
+        var idCollapse = $(button).closest('li').find('.collapse').attr('id');
+        $(button)
+          .removeClass('btn-danger')
+          .removeAttr('onclick')
+          .addClass("btn-primary")
+          .attr('data-toggle', 'collapse')
+          .attr('data-target', '#' + idCollapse)
+          .text("Agregar pronóstico");
+        $(button).closest('li').removeClass("bg-success");
+      }
+    });
+};
+
+function borrarPronosticoFaseFinal(button) {
+  var equipos = $(button).closest('li').find('.equipo');
+  var equipo1 = equipos.eq(0).text();
+  var equipo2 = equipos.eq(1).text();
+  $.post("/api/borrarPronosticoFaseFinal", {
       "equipo1": equipo1,
       "equipo2": equipo2
     },

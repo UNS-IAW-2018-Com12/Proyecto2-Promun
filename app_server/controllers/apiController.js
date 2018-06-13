@@ -30,6 +30,49 @@ var addPronosticoFaseFinal = (req, res) => {
   });
 }
 
+var deletePronosticoFaseFinal = (req, res) => {
+  PartidoFaseFinal.findOne({"equipo1": req.body.equipo1, "equipo2": req.body.equipo2 })
+  .then((partido) => {
+      var pronosticosPartido = partido.pronosticos;
+      pronosticosPartido.forEach((pronosticoPartido) => {
+        if (pronosticoPartido.user == req.user.username) {
+          pronosticoPartido.remove();
+        }
+      });
+      partido.save().then((doc) => {
+        res.send(pronostico);
+      }, (e) => {
+        console.log(e);
+      });
+  }).catch((e) => {
+    res.status(404).send("La página solicitada no existe.");
+  });
+}
+
+var deletePronostico = (req, res) => {
+  Grupo.findOne({"equipos.nombre": req.body.equipo1})
+  .then((grupo) => {
+    var partidosGrupo = grupo.partidos;
+    partidosGrupo.forEach((partido) => {
+      if (partido.equipo1 === req.body.equipo1 && partido.equipo2 === req.body.equipo2) {
+        var pronosticosPartido = partido.pronosticos;
+        pronosticosPartido.forEach((pronosticoPartido) => {
+          if (pronosticoPartido.user == req.user.username) {
+            pronosticoPartido.remove();
+          }
+        });
+        grupo.save().then(() => {
+          res.send('Pronostico eliminado');
+        }, (e) => {
+          console.log(e);
+        });
+      }
+    });
+  }).catch((e) => {
+    res.status(404).send("La página solicitada no existe.");
+  });
+}
+
 var addPronostico = (req, res) => {
   Grupo.findOne({"equipos.nombre": req.body.equipo1})
   .then((grupo) => {
@@ -53,30 +96,6 @@ var addPronostico = (req, res) => {
           partido.pronosticos.push(pronostico);
         grupo.save().then((doc) => {
           res.send(pronostico);
-        }, (e) => {
-          console.log(e);
-        });
-      }
-    });
-  }).catch((e) => {
-    res.status(404).send("La página solicitada no existe.");
-  });
-}
-
-var deletePronostico = (req, res) => {
-  Grupo.findOne({"equipos.nombre": req.body.equipo1})
-  .then((grupo) => {
-    var partidosGrupo = grupo.partidos;
-    partidosGrupo.forEach((partido) => {
-      if (partido.equipo1 === req.body.equipo1 && partido.equipo2 === req.body.equipo2) {
-        var pronosticosPartido = partido.pronosticos;
-        pronosticosPartido.forEach((pronosticoPartido) => {
-          if (pronosticoPartido.user == req.user.username) {
-            pronosticoPartido.remove();
-          }
-        });
-        grupo.save().then(() => {
-          res.send('Pronostico eliminado');
         }, (e) => {
           console.log(e);
         });
