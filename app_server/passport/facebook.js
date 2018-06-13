@@ -52,7 +52,7 @@ module.exports = function(passport) {
                   nuevoUsuaio.foto_path = "http://graph.facebook.com/" +
                                            profile.id +
                                           "/picture" +
-                                          "?width=50&height=50" +
+                                          "?width=50&height=50" + 
                                           "&access_token=" +
                                           access_token;  //obtiene la imagen de perfil actual
                   nuevoUsuaio.puntaje = 0;
