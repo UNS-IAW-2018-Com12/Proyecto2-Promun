@@ -3,7 +3,31 @@ var Grupo = mongoose.model('Grupo');
 var PartidoFaseFinal = mongoose.model('PartidoFaseFinal');
 
 var addPronosticoFaseFinal = (req, res) => {
-
+  PartidoFaseFinal.findOne({"equipo1": req.body.equipo1, "equipo2": req.body.equipo2 })
+  .then((partido) => {
+      var pronostico = {
+        user: req.user.username
+      }
+      var pronosticosPartido = partido.pronosticos;
+      var existePronostico = false;
+      pronosticosPartido.forEach((pronosticoPartido) => {
+        if (pronosticoPartido.user == req.user.username) {
+          pronostico = pronosticoPartido;
+          existePronostico = true;
+        }
+      });
+      pronostico.golesEquipo1 = req.body.golesEquipo1;
+      pronostico.golesEquipo2 = req.body.golesEquipo2;
+      if (!existePronostico)
+        partido.pronosticos.push(pronostico);
+      partido.save().then((doc) => {
+        res.send(pronostico);
+      }, (e) => {
+        console.log(e);
+      });
+  }).catch((e) => {
+    res.status(404).send("La página solicitada no existe.");
+  });
 }
 
 var addPronostico = (req, res) => {
